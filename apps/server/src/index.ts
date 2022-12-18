@@ -1,7 +1,7 @@
-import { Hono } from 'hono';
 import { baseRouter } from '@/router';
+import { createHono } from './utils/createHono';
 
-const app = new Hono();
+const app = createHono();
 app.route('/', baseRouter);
 
 app.get('/', (c) => {

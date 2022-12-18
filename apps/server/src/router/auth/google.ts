@@ -1,6 +1,6 @@
-import { Hono } from 'hono';
+import { createHono } from '@/utils/createHono';
 
-export const googleAuthRouter = new Hono();
+export const googleAuthRouter = createHono();
 
 googleAuthRouter.get('/redirect', (c) => {
   return c.redirect('/');

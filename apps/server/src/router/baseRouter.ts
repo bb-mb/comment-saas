@@ -1,5 +1,5 @@
-import { Hono } from 'hono';
+import { createHono } from '@/utils/createHono';
 import { authRouter } from './auth';
 
-export const baseRouter = new Hono();
+export const baseRouter = createHono();
 baseRouter.route('auth', authRouter);

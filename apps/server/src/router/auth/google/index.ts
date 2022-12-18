@@ -1,0 +1,1 @@
+export { googleAuthRouter } from './googleAuth';

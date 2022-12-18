@@ -1,4 +1,4 @@
-import { createHono } from '@/utils/createHono';
+import { createHono } from '@/utils/honoHelper';
 import { authRouter } from './auth';
 
 export const baseRouter = createHono();

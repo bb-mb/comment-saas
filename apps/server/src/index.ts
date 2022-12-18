@@ -1,5 +1,5 @@
 import { baseRouter } from '@/router';
-import { createHono } from './utils/createHono';
+import { createHono } from './utils/honoHelper';
 
 const app = createHono();
 app.route('/', baseRouter);

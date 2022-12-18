@@ -1,4 +1,4 @@
-import { createHono } from '@/utils/createHono';
+import { createHono } from '@/utils/honoHelper';
 import { googleAuthRouter } from './google';
 
 export const authRouter = createHono();

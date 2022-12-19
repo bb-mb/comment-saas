@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@tsndr/cloudflare-worker-jwt": "^2.1.4",
+    "d1-orm": "^0.7.2",
     "hono": "^2.6.2",
     "query-string": "^8.0.3",
     "worker-auth-providers": "^0.0.10-beta7"

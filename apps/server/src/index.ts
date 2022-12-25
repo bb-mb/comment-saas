@@ -1,5 +1,5 @@
 import { baseRouter } from '@/router';
-import { initEnv } from './middlewares/initGlobalEnv';
+import { initEnv } from './middlewares';
 import { createHono } from './utils/honoHelper';
 
 const app = createHono();

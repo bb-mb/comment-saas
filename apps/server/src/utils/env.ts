@@ -1,6 +1,6 @@
 import { Bindings } from '@/types/Environment';
 
-class GlobalEnv {
+class Env {
   env: Bindings = {
     GOOGLE_AUTH_CLIENT_ID: '',
     GOOGLE_AUTH_REDIRECT_URL: '',
@@ -11,4 +11,4 @@ class GlobalEnv {
   set = (newEnv: Bindings) => (this.env = newEnv);
 }
 
-export const globalEnv = new GlobalEnv();
+export const env = new Env();

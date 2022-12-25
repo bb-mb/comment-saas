@@ -5,3 +5,4 @@ export const googleAuthRouter = createHono();
 const googleAuthController = new GoogleAuthController();
 
 googleAuthRouter.get('/', googleAuthController.redirectGoogleAuth);
+googleAuthRouter.get('/redirect', googleAuthController.callback);

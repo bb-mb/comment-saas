@@ -1,5 +1,6 @@
 import { Bindings } from '@/types/Environment';
 import queryString from 'query-string';
+import { google } from 'worker-auth-providers';
 
 export class GoogleAuthService {
   getAuthorizationUrl(env: Bindings) {
@@ -13,5 +14,15 @@ export class GoogleAuthService {
     });
 
     return { url: `https://accounts.google.com/o/oauth2/v2/auth?${query}` };
+  }
+
+  getGoogleUser(request: Request, env: Bindings) {
+    const options = {
+      clientId: env.GOOGLE_AUTH_CLIENT_ID,
+      clientSecret: env.GOOGLE_AUTH_SECRET,
+      redirectUrl: env.GOOGLE_AUTH_REDIRECT_URL,
+    };
+
+    return google.users({ request, options });
   }
 }

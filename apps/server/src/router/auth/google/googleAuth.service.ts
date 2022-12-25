@@ -1,12 +1,12 @@
-import { Bindings } from '@/types/Environment';
+import { globalEnv } from '@/utils/globalEnv';
 import queryString from 'query-string';
 import { google } from 'worker-auth-providers';
 
 export class GoogleAuthService {
-  getAuthorizationUrl = (env: Bindings) => {
+  getAuthorizationUrl = () => {
     const query = queryString.stringify({
-      client_id: env.GOOGLE_AUTH_CLIENT_ID,
-      redirect_uri: env.GOOGLE_AUTH_REDIRECT_URL,
+      client_id: globalEnv.get('GOOGLE_AUTH_CLIENT_ID'),
+      redirect_uri: globalEnv.get('GOOGLE_AUTH_REDIRECT_URL'),
       response_type: 'code',
       scope: 'openid email profile',
       include_granted_scopes: 'true',
@@ -16,11 +16,11 @@ export class GoogleAuthService {
     return { url: `https://accounts.google.com/o/oauth2/v2/auth?${query}` };
   };
 
-  getGoogleUser = (request: Request, env: Bindings) => {
+  getGoogleUser = (request: Request) => {
     const options = {
-      clientId: env.GOOGLE_AUTH_CLIENT_ID,
-      clientSecret: env.GOOGLE_AUTH_SECRET,
-      redirectUrl: env.GOOGLE_AUTH_REDIRECT_URL,
+      clientId: globalEnv.get('GOOGLE_AUTH_CLIENT_ID'),
+      clientSecret: globalEnv.get('GOOGLE_AUTH_SECRET'),
+      redirectUrl: globalEnv.get('GOOGLE_AUTH_REDIRECT_URL'),
     };
 
     return google.users({ request, options });

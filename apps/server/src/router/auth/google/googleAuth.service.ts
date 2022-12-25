@@ -5,8 +5,8 @@ import { google } from 'worker-auth-providers';
 export class GoogleAuthService {
   getAuthorizationUrl = () => {
     const query = queryString.stringify({
-      client_id: env.get('GOOGLE_AUTH_CLIENT_ID'),
-      redirect_uri: env.get('GOOGLE_AUTH_REDIRECT_URL'),
+      client_id: env.bindings.GOOGLE_AUTH_CLIENT_ID,
+      redirect_uri: env.bindings.GOOGLE_AUTH_REDIRECT_URL,
       response_type: 'code',
       scope: 'openid email profile',
       include_granted_scopes: 'true',
@@ -18,9 +18,9 @@ export class GoogleAuthService {
 
   getGoogleUser = (request: Request) => {
     const options = {
-      clientId: env.get('GOOGLE_AUTH_CLIENT_ID'),
-      clientSecret: env.get('GOOGLE_AUTH_SECRET'),
-      redirectUrl: env.get('GOOGLE_AUTH_REDIRECT_URL'),
+      clientId: env.bindings.GOOGLE_AUTH_CLIENT_ID,
+      clientSecret: env.bindings.GOOGLE_AUTH_SECRET,
+      redirectUrl: env.bindings.GOOGLE_AUTH_REDIRECT_URL,
     };
 
     return google.users({ request, options });

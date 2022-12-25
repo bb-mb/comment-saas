@@ -1,9 +1,9 @@
 import { Bindings } from '@/types/Environment';
 
 class Env {
-  env: any;
+  private env?: Bindings;
 
-  get = (name: keyof Bindings) => this.env[name];
+  bindings = this.env!;
   set = (newEnv: Bindings) => (this.env = newEnv);
 }
 

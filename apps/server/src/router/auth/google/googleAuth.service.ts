@@ -1,3 +1,4 @@
+import { DB } from '@/db/db';
 import { env } from '@/utils/env';
 import queryString from 'query-string';
 import { google } from 'worker-auth-providers';
@@ -24,5 +25,9 @@ export class GoogleAuthService {
     };
 
     return google.users({ request, options });
+  };
+
+  createUser = (user: { name: string; email: string; googleId: string }) => {
+    return new DB().user.InsertOne(user);
   };
 }

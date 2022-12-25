@@ -11,8 +11,14 @@ export class GoogleAuthController {
   };
 
   authCallback: middleware = async (c) => {
-    const { user } = await this.googleAuthService.getGoogleUser(c.req);
+    const { user }: any = await this.googleAuthService.getGoogleUser(c.req);
 
-    return c.json(user);
+    const reuslt = await this.googleAuthService.createUser({
+      name: user.name,
+      email: user.email,
+      googleId: user.id,
+    });
+
+    return c.json(reuslt);
   };
 }

@@ -3,7 +3,9 @@ import { Bindings } from '@/types/Environment';
 class Env {
   private env?: Bindings;
 
-  bindings = this.env!;
+  get bindings() {
+    return this.env!;
+  }
   set = (newEnv: Bindings) => (this.env = newEnv);
 }
 

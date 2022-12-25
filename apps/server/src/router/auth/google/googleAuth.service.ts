@@ -28,6 +28,6 @@ export class GoogleAuthService {
   };
 
   createUser = (user: { name: string; email: string; googleId: string }) => {
-    return new DB().user.InsertOne(user);
+    return new DB().users.InsertOne(user);
   };
 }

@@ -5,5 +5,5 @@ import { getUserModel } from './models';
 export class DB {
   private orm = new D1Orm(env.bindings.DB);
 
-  user = getUserModel(this.orm);
+  users = getUserModel(this.orm);
 }

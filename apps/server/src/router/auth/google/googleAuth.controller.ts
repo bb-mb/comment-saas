@@ -11,7 +11,7 @@ export class GoogleAuthController {
     return c.redirect(url);
   };
 
-  callback: controllerMethod = async (c) => {
+  authCallback: controllerMethod = async (c) => {
     const { user } = await this.googleAuthService.getGoogleUser(c.req, c.env);
 
     return c.json(user);

@@ -7,7 +7,7 @@ export const getUserModel = (orm: D1Orm) => {
       tableName: 'users',
       primaryKeys: 'id',
       autoIncrement: 'id',
-      uniqueKeys: [['id', 'email', 'googleId']],
+      uniqueKeys: [['id'], ['email'], ['googleId']],
     },
     {
       id: { type: DataTypes.INTEGER, notNull: true },
